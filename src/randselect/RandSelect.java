@@ -1,12 +1,13 @@
+package randselect;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class RandSelect {
     public static void main(String[] args) throws IOException {
         ArrayList<String> names = new ArrayList<>();
-        File file = new File("src/name.txt");
+        File file = new File("src/randselect/name.txt");
         FileReader fr = new FileReader(file);
         BufferedReader br = new BufferedReader(fr);
         String name;

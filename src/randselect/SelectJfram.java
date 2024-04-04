@@ -1,8 +1,8 @@
+package randselect;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +17,7 @@ public class SelectJfram extends JFrame implements ActionListener {
     ImageIcon yifei;
     public SelectJfram(ArrayList<String> names, HashMap<String, Double> weights) {
 
-        pthto = "src/yifei.jpg";
+        pthto = "src/randselect/yifei.jpg";
         yifei = new ImageIcon(pthto);
 
         this.names = names;
@@ -103,7 +103,7 @@ public class SelectJfram extends JFrame implements ActionListener {
 
             scrollThread.start();
             String name;
-            new Timer(3000, new ActionListener() {
+            Timer timer = new Timer(3000, new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     String name = weightSelect();
@@ -120,7 +120,9 @@ public class SelectJfram extends JFrame implements ActionListener {
                     SelectJfram.this.getContentPane().add(label);
                     SelectJfram.this.getContentPane().repaint();
                 }
-            }).start();
+            });
+            timer.setRepeats(false);
+            timer.start();
 
         }
         else if(source == gaiLu) {
